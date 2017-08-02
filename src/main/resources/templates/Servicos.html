@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8" />
+<title>Serviço</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"> <img alt="AlgaWorks"
+					src="/images/logo.png" />
+				</a>
+			</div>
+		</div>
+	</nav>
+
+	<form>
+		<div class="container-fluid">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h1 class="panel-title">Serviço</h1>
+				</div>
+				<div class="row col-sm-offset-1" style="margin-top: 10px;">
+
+			
+					<div class="form-group col-md-1">
+						<label for="fabricante">Unidade</label> 
+						<input type="text" class="form-control" id="fabricante" placeholder="Und" />
+					</div>
+					<div class="form-group col-md-1">
+						<label for="modelo">Quantidade</label> 
+						<input type="text" class="form-control" id="modelo" placeholder="Qtd" />
+					</div>
+					<div class="form-group col-md-4">
+						<label for="cor">Descrição</label> 
+						<input type="text" class="form-control" id="cor" placeholder="Descrição" />
+					</div>
+					<div class="form-group col-md-2">
+						<label for="placa">Valor Unitário</label> 
+						<input type="text" class="form-control" id="placa" placeholder="Valor" />
+					</div>				
+				</div>
+				<div class="panel-body">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th class="text-center col-md-1">Unidade</th>
+								<th class="text-center col-md-1">Quantidade</th>
+								<th class="text-left col-md-4">Descrição</th>
+								<th class="text-left col-md-1">Valor Unit.</th>
+								<th class="text-left col-md-1">Valor Total</th>	
+							</tr>
+						</thead>
+						<tbody>
+		
+							<tr th:each="titulo: ${titulos}">
+								<td class="text-center" th:text="${titulo.codigo}"></td>
+								<td th:text="${titulo.descricao}"></td>
+								<td class="text-center" th:text="${{titulo.dataVencimento}}"></td> <!-- Duas "{{" chaves faz o thymeleaf pegar a formatação que esta na classe Titulo -->
+								<td class="text-right" th:text="|R$ ${{titulo.valor}}|"></td> <!-- Para concatenar utilizar a barra "|" -->
+								<td class="text-center">
+									<span class="label" th:text="${titulo.status.descricao}"
+										th:classappend="${titulo.pendente ? 'label-danger' : 'label-success'}"></span>
+								</td>
+								<td class="text-center">
+								
+								</td>
+							</tr>
+							<tr>
+								<td colspan="6" th:if="${#lists.isEmpty(titulos)}">Nenhum título foi encontrado</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				
+				<div class="row" style="margin-bottom: 10px;">
+					<div class="form-group">
+						<div class="col-sm-offset-4 col-sm-10">
+							<button type="submit" class="btn btn-primary">Salvar</button>
+							<button type="submit" class="btn btn-danger">Cancelar</button>
+							<button type="submit" class="btn btn-success">Serviço</button>
+						</div>
+					</div>
+				</div>
+			</div>	
+		
+		</div>
+	</form>
+
+	<script src="/js/jquery-3.2.1.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

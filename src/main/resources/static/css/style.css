@@ -1,0 +1,38 @@
+@CHARSET "UTF-8";
+
+.navbar-brand{
+	
+}
+
+.panel-default {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.alert{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.aw-link-panel{
+	float: right;
+	padding: 0px;
+}
+
+.aw-titulo-panel{
+	float: left;
+	padding-top: 2px;
+}
+.form-group{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.form-group-pessoa{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.container-fluid{
+	margin-left: 0px;
+	margin-right: 0px;
+}
